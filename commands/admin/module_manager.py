@@ -127,7 +127,7 @@ async def catalog_modules(message: types.Message):
     global CATALOG
     
     try:
-        response = requests.get("https://raw.githubusercontent.com/Alia-Ether/Etherion-modules/refs/heads/V2/modules.json")
+        response = requests.get("https://raw.githubusercontent.com/Alia-Ether/Etherion-modules/refs/heads/main/modules.json")
         CATALOG = response.json()
     except:
         pass
@@ -244,3 +244,4 @@ def reg(dp: Dispatcher):
     dp.register_callback_query_handler(catalog_modules_next, text_startswith="catalogmod-list_")
     dp.register_callback_query_handler(load_mod, text_startswith="load-modul_")
     dp.register_message_handler(load_mod_cmd, lambda message: message.text.startswith("/loadmodb "))
+
